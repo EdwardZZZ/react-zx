@@ -11,6 +11,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23,8 +27,8 @@ var proxy = {
     update: function update() {}
 };
 
-var Provider = exports.Provider = function (_React$Component) {
-    _inherits(Provider, _React$Component);
+var Provider = exports.Provider = function (_Component) {
+    _inherits(Provider, _Component);
 
     function Provider(props) {
         _classCallCheck(this, Provider);
@@ -54,10 +58,10 @@ var Provider = exports.Provider = function (_React$Component) {
     }]);
 
     return Provider;
-}(_react2.default.Component);
+}(_react.Component);
 
 Provider.childContextTypes = {
-    proxy: _react.PropTypes.object.isRequired
+    proxy: _propTypes2.default.object.isRequired
 };
 
 var Computed = exports.Computed = function Computed() {
