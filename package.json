@@ -1,10 +1,10 @@
 {
   "name": "react-zx",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "like mobx, more simple",
   "main": "build/index.js",
   "scripts": {
-    "build": "babel index.js -o build/index.js"
+    "build": "babel src/index.js -o index.js"
   },
   "repository": {
     "type": "git",

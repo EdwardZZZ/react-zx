@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 var config = {
     entry: [
-        './index.js'
+        './src/index.js'
     ],
     resolve: {
         extensions: ['', '.js']
