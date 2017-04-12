@@ -10,15 +10,18 @@ react state management
 
 
 ### entry
+
     ```javascript
     import { Provider } from 'react-zx';
 
     render(<Provider><Index /></Provider>, document.getElementById('app'));
+    ```
 
 ### model
 
 
 Todo.js
+
     ```javascript
     import { Computed } from 'react-zx';
 
@@ -34,8 +37,10 @@ Todo.js
             this.title = title;
         }
     }
+    ```
 
 TodoList.js
+
     ```javascript
     import { Computed } from 'react-zx';
 
@@ -50,12 +55,16 @@ TodoList.js
             this.todos.push(todo);
         }
     }
+    ```
 
 Store.js
+
     ```javascript
     export const todoList = new TodoList();
+    ```
 
 Page.js
+
     ```javascript
     import { todoList } from 'Store';   // 在需要使用的地方引入即可
     class TodoListView extends Component {
@@ -69,3 +78,4 @@ Page.js
             </div>
         }
     }
+    ```
