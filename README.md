@@ -44,8 +44,8 @@ TodoList.js
 ```javascript
 import { Computed } from 'react-zx';
 
-function autorun(){
-    console.log(1);
+function autorun(list){
+    console.log(list);
 }
 
 export default class TodoList{
