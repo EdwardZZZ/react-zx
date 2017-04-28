@@ -44,13 +44,17 @@ TodoList.js
 ```javascript
 import { Computed } from 'react-zx';
 
+function autorun(){
+    console.log(1);
+}
+
 export default class TodoList{
     constructor(props){
     }
 
     todos = [];
 
-    @Computed
+    @Computed(autorun)
     add(todo){
         this.todos.push(todo);
     }

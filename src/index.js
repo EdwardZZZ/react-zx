@@ -32,6 +32,7 @@ Provider.childContextTypes = {
 }
 
 export const Computed = function (...args) {
+    // decorator has no arguments
     if (args.length === 3 && typeof args[2].value === 'function') {
         return handle(...args);
     } else {
@@ -59,6 +60,11 @@ export const Computed = function (...args) {
                 let fn = function () {
                     _fn.bind(this)(...arguments);
                     proxy.update();
+
+                    // if decorator's arguments is a function, replace autorun
+                    if(typeof _args === 'function'){
+                        _args();
+                    }
                 }
 
                 const boundFn = bind(fn, this);

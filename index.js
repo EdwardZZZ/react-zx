@@ -100,6 +100,10 @@ var Computed = exports.Computed = function Computed() {
                 var fn = function fn() {
                     _fn.bind(this).apply(undefined, arguments);
                     proxy.update();
+
+                    if (typeof _args === 'function') {
+                        _args();
+                    }
                 };
 
                 var boundFn = bind(fn, this);
