@@ -62,8 +62,8 @@ export const Computed = function (...args) {
                     proxy.update();
 
                     // if decorator's arguments is a function, replace autorun
-                    if(typeof _args === 'function'){
-                        _args();
+                    if(_args[0] && typeof _args[0] === 'function'){
+                        _args[0]();
                     }
                 }
 
