@@ -63,7 +63,7 @@ export const Computed = function (...args) {
 
                     // if decorator's arguments is a function, replace autorun
                     if(_args[0] && typeof _args[0] === 'function'){
-                        _args[0].bind(this)(...arguments);
+                        _args[0].apply(this, arguments);
                     }
                 }
 

@@ -102,7 +102,7 @@ var Computed = exports.Computed = function Computed() {
                     proxy.update();
 
                     if (_args[0] && typeof _args[0] === 'function') {
-                        _args[0].bind(this).apply(undefined, arguments);
+                        _args[0].apply(this, arguments);
                     }
                 };
 
