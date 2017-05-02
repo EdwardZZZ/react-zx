@@ -58,12 +58,12 @@ export const Computed = function (...args) {
 
             get() {
                 let fn = function () {
-                    _fn.bind(this)(...arguments);
+                    _fn.apply(this, arguments);
                     proxy.update();
 
                     // if decorator's arguments is a function, replace autorun
                     if(_args[0] && typeof _args[0] === 'function'){
-                        _args[0](this);
+                        _args[0].bind(this)(...arguments);
                     }
                 }
 

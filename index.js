@@ -98,11 +98,11 @@ var Computed = exports.Computed = function Computed() {
 
             get: function get() {
                 var fn = function fn() {
-                    _fn.bind(this).apply(undefined, arguments);
+                    _fn.apply(this, arguments);
                     proxy.update();
 
-                    if (typeof _args === 'function') {
-                        _args();
+                    if (_args[0] && typeof _args[0] === 'function') {
+                        _args[0].bind(this).apply(undefined, arguments);
                     }
                 };
 
