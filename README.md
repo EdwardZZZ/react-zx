@@ -1,13 +1,10 @@
 # react-zx
 
 react state management
+此组件在需要的地方引入即可，适用于使用地方较多，更改不频繁的数据管理，最大的好处是减少props
 
 ### Installation
     npm install --save react-zx
-
-## useage
-<https://github.com/EdwardZZZ/react-zx-eg>
-
 
 ### entry
 

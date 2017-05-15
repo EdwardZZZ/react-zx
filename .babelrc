@@ -1,4 +1,16 @@
 {
-  "presets": ["es2015", "stage-2"],
-  "comments": false
+  "presets": [
+    [
+      "es2015",
+      {
+        "modules": false
+      }
+    ],
+    "stage-2"
+  ],
+  "plugins": [
+    "external-helpers",
+    "transform-runtime",
+    "transform-class-properties"
+  ]
 }
