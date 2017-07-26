@@ -20,7 +20,7 @@ render(<Provider><Index /></Provider>, document.getElementById('app'));
 Todo.js
 
 ```javascript
-import { Computed } from 'react-zx';
+import { Computed, assign } from 'react-zx';    // 此assign只赋值自身值非对象的属性
 
 export default class Todo{
     constructor(props){
@@ -32,6 +32,11 @@ export default class Todo{
     @Computed
     setTitle(title){
         this.title = title;
+    }
+
+    @Computed
+    setting(params){
+        assign(this, params);
     }
 }
 ```
