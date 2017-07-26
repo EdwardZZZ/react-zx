@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('babel-runtime/core-js/object/get-prototype-of'), require('babel-runtime/helpers/classCallCheck'), require('babel-runtime/helpers/createClass'), require('babel-runtime/helpers/possibleConstructorReturn'), require('babel-runtime/helpers/inherits'), require('react'), require('proptypes'), require('babel-runtime/core-js/object/define-property')) :
-    typeof define === 'function' && define.amd ? define(['exports', 'babel-runtime/core-js/object/get-prototype-of', 'babel-runtime/helpers/classCallCheck', 'babel-runtime/helpers/createClass', 'babel-runtime/helpers/possibleConstructorReturn', 'babel-runtime/helpers/inherits', 'react', 'proptypes', 'babel-runtime/core-js/object/define-property'], factory) :
-    (factory((global.module = global.module || {}),global._Object$getPrototypeOf,global._classCallCheck,global._createClass,global._possibleConstructorReturn,global._inherits,global.React,global.PropTypes,global._Object$defineProperty));
-}(this, (function (exports,_Object$getPrototypeOf,_classCallCheck,_createClass,_possibleConstructorReturn,_inherits,React,PropTypes,_Object$defineProperty) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('babel-runtime/core-js/object/get-prototype-of'), require('babel-runtime/helpers/classCallCheck'), require('babel-runtime/helpers/createClass'), require('babel-runtime/helpers/possibleConstructorReturn'), require('babel-runtime/helpers/inherits'), require('react'), require('proptypes'), require('babel-runtime/core-js/object/define-property'), require('babel-runtime/helpers/typeof')) :
+    typeof define === 'function' && define.amd ? define(['exports', 'babel-runtime/core-js/object/get-prototype-of', 'babel-runtime/helpers/classCallCheck', 'babel-runtime/helpers/createClass', 'babel-runtime/helpers/possibleConstructorReturn', 'babel-runtime/helpers/inherits', 'react', 'proptypes', 'babel-runtime/core-js/object/define-property', 'babel-runtime/helpers/typeof'], factory) :
+    (factory((global.module = global.module || {}),global._Object$getPrototypeOf,global._classCallCheck,global._createClass,global._possibleConstructorReturn,global._inherits,global.React,global.PropTypes,global._Object$defineProperty,global._typeof));
+}(this, (function (exports,_Object$getPrototypeOf,_classCallCheck,_createClass,_possibleConstructorReturn,_inherits,React,PropTypes,_Object$defineProperty,_typeof) { 'use strict';
 
 _Object$getPrototypeOf = 'default' in _Object$getPrototypeOf ? _Object$getPrototypeOf['default'] : _Object$getPrototypeOf;
 _classCallCheck = 'default' in _classCallCheck ? _classCallCheck['default'] : _classCallCheck;
@@ -12,6 +12,7 @@ _inherits = 'default' in _inherits ? _inherits['default'] : _inherits;
 React = 'default' in React ? React['default'] : React;
 PropTypes = 'default' in PropTypes ? PropTypes['default'] : PropTypes;
 _Object$defineProperty = 'default' in _Object$defineProperty ? _Object$defineProperty['default'] : _Object$defineProperty;
+_typeof = 'default' in _typeof ? _typeof['default'] : _typeof;
 
 var proxy = {
     update: function update() {
@@ -115,8 +116,31 @@ function handle(target, key, _ref, _args) {
     };
 }
 
+var assign = function (target) {
+    for (var _len = arguments.length, sources = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        sources[_key - 1] = arguments[_key];
+    }
+
+    var _loop = function _loop(key) {
+        //Object.getOwnPropertyNames
+        var _type = _typeof(target[key]);
+        if (target.hasOwnProperty(key) && _type !== 'object' && _type !== 'function') {
+            sources.forEach(function (source) {
+                if (key in source) {
+                    target[key] = source[key];
+                }
+            });
+        }
+    };
+
+    for (var key in target) {
+        _loop(key);
+    }
+};
+
 exports.Provider = Provider;
 exports.Computed = Computed;
+exports.assign = assign;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
