@@ -23,9 +23,7 @@ Todo.js
 import { Computed, assign } from 'react-zx';    // 此assign只赋值自身值非对象的属性
 
 export default class Todo{
-    constructor(props){
-    }
-
+    
     id;
     title;
 
