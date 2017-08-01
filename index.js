@@ -124,7 +124,7 @@ var assign = function (target) {
     var _loop = function _loop(key) {
         //Object.getOwnPropertyNames
         var _type = _typeof(target[key]);
-        if (target.hasOwnProperty(key) && _type !== 'object' && _type !== 'function') {
+        if (target.hasOwnProperty(key) && _type !== 'function') {
             sources.forEach(function (source) {
                 if (key in source) {
                     target[key] = source[key];

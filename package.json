@@ -1,6 +1,6 @@
 {
   "name": "react-zx",
-  "version": "0.0.12",
+  "version": "0.0.14",
   "description": "react state management, more simple",
   "main": "index.js",
   "scripts": {
