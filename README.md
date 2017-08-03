@@ -52,6 +52,10 @@ export default class TodoList{
 
     todos = [];
 
+    addNotUpdate(todo){
+        this.todos.push(todo);
+    }
+
     @Computed(autorun)
     add(todo){
         this.todos.push(todo);
@@ -83,7 +87,7 @@ export default class TodoListView extends React.Component {
     constructor(){
         super();
 
-        todoList.add(new Todo(1, 'todo title 1'))
+        todoList.addNotUpdate(new Todo(1, 'todo title 1'))
     }
 
     render() {
