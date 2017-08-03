@@ -23,7 +23,11 @@ Todo.js
 import { Computed, assign } from 'react-zx';    // 此assign只赋值自身值非对象的属性
 
 export default class Todo{
-    
+    constructor(id, title){
+        this.id = id;
+        this.title = title;
+    }
+
     id;
     title;
 
@@ -44,13 +48,7 @@ TodoList.js
 ```javascript
 import { Computed } from 'react-zx';
 
-function autorun(todo){
-    console.log(this, todo);
-}
-
 export default class TodoList{
-    constructor(props){
-    }
 
     todos = [];
 
@@ -59,27 +57,53 @@ export default class TodoList{
         this.todos.push(todo);
     }
 }
+
+function autorun(todo){
+    console.log(this, todo);
+}
 ```
 
 Store.js
 
 ```javascript
+import TodoList from './model/TodoList';
+
 export const todoList = new TodoList();
 ```
 
 Page.js
 
 ```javascript
-import { todoList } from 'Store';   // 在需要使用的地方引入即可
-class TodoListView extends Component {
+import React from 'react';
+import { todoList } from './zx/Store';   // 在需要使用的地方引入即可
+
+import Todo from './zx/model/Todo';
+
+export default class TodoListView extends React.Component {
+    constructor(){
+        super();
+
+        todoList.add(new Todo(1, 'todo title 1'))
+    }
+
     render() {
         return <div>
             <ul>
-                {todoList.todos.map(todo =>
-                    <li todo={todo} key={todo.id} />
+                {todoList.todos.map(todo => 
+                    <li key={todo.id} onClick={this.changeTitle.bind(this, todo)} >{todo.title}</li>
                 )}
             </ul>
+            <button onClick={this.add}>添加</button>
         </div>
+    }
+
+    changeTitle(todo){
+        todo.setTitle(todo.title + '.')
+    }
+
+    add = () => {
+        let n = todoList.todos.length + 1;
+        todoList.add(new Todo(n, `todo title ${n}`));
     }
 }
 ```

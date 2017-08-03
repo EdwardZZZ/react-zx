@@ -32,7 +32,7 @@ function handle(target, key, { value: _fn, configurable, enumerable }, _args) {
                 proxy.update();
 
                 // if decorator's arguments is a function, replace autorun
-                if (_args[0] && typeof _args[0] === 'function') {
+                if (_args && _args[0] && typeof _args[0] === 'function') {
                     _args[0].apply(this, arguments);
                 }
             }

@@ -1,6 +1,6 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('babel-runtime/core-js/object/get-prototype-of'), require('babel-runtime/helpers/classCallCheck'), require('babel-runtime/helpers/createClass'), require('babel-runtime/helpers/possibleConstructorReturn'), require('babel-runtime/helpers/inherits'), require('react'), require('proptypes'), require('babel-runtime/core-js/object/define-property'), require('babel-runtime/helpers/typeof')) :
-    typeof define === 'function' && define.amd ? define(['exports', 'babel-runtime/core-js/object/get-prototype-of', 'babel-runtime/helpers/classCallCheck', 'babel-runtime/helpers/createClass', 'babel-runtime/helpers/possibleConstructorReturn', 'babel-runtime/helpers/inherits', 'react', 'proptypes', 'babel-runtime/core-js/object/define-property', 'babel-runtime/helpers/typeof'], factory) :
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('babel-runtime/core-js/object/get-prototype-of'), require('babel-runtime/helpers/classCallCheck'), require('babel-runtime/helpers/createClass'), require('babel-runtime/helpers/possibleConstructorReturn'), require('babel-runtime/helpers/inherits'), require('react'), require('prop-types'), require('babel-runtime/core-js/object/define-property'), require('babel-runtime/helpers/typeof')) :
+    typeof define === 'function' && define.amd ? define(['exports', 'babel-runtime/core-js/object/get-prototype-of', 'babel-runtime/helpers/classCallCheck', 'babel-runtime/helpers/createClass', 'babel-runtime/helpers/possibleConstructorReturn', 'babel-runtime/helpers/inherits', 'react', 'prop-types', 'babel-runtime/core-js/object/define-property', 'babel-runtime/helpers/typeof'], factory) :
     (factory((global.module = global.module || {}),global._Object$getPrototypeOf,global._classCallCheck,global._createClass,global._possibleConstructorReturn,global._inherits,global.React,global.PropTypes,global._Object$defineProperty,global._typeof));
 }(this, (function (exports,_Object$getPrototypeOf,_classCallCheck,_createClass,_possibleConstructorReturn,_inherits,React,PropTypes,_Object$defineProperty,_typeof) { 'use strict';
 
@@ -97,7 +97,7 @@ function handle(target, key, _ref, _args) {
                 proxy.update();
 
                 // if decorator's arguments is a function, replace autorun
-                if (_args[0] && typeof _args[0] === 'function') {
+                if (_args && _args[0] && typeof _args[0] === 'function') {
                     _args[0].apply(this, arguments);
                 }
             };
