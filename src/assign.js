@@ -1,4 +1,4 @@
-export default function(target, ...sources) {
+export default const assign = (target, ...sources) => {
     for (let key in target) {   //Object.getOwnPropertyNames
         let _type = typeof target[key];
         if (target.hasOwnProperty(key) && _type !== 'function') {
